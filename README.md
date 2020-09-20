@@ -1,7 +1,8 @@
-# vodopoj
+# Vodopoj
 
 Site to help voloters in Simpheropol with searching people needing water
-Сайт для помощи волонтерам Симферополя в поисках нуждающихся в воде
+
+**Сайт для помощи волонтерам Симферополя в поисках нуждающихся в воде**
 
 Стэк технологий:
   
