@@ -1,0 +1,24 @@
+@import './Static/colors'
+@import './Static/fonts'
+@import './Static/decore'
+
+@import './Static/styles-lib'
+
+*
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+body
+  margin: 0
+  color: $-c-text
+  background: $-c-background
+  font-family: $-f-norm
+  background-color: $-c-background
+
+::selection
+  background: $-c-highlight-50
+
+@import Basic/button/button
+@import Blocks/post/post
+@import Blocks/menu/menu

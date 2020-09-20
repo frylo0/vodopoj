@@ -1,0 +1,40 @@
+include ../../bundle.pug
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Vodopoj
+  body.rel
+    //-.body-content
+    h1.tac Vodopoj
+
+    +menu()
+
+    -
+      let posts = [
+        'Привет, мир',
+        'Shop of MEN things',
+        'Привет, мир',
+        'Shop of MEN things',
+        'Одиннадцатиклассница',
+        'Преложение - это несколько слов связанных по смыслу Преложение - это несколько слов связанных по смыслу',
+        'Привет, мир',
+        'Shop of MEN things',
+        'Привет, мир',
+        'Shop of MEN things',
+        'Одиннадцатиклассница',
+        'Преложение - это несколько слов связанных по смыслу Преложение - это несколько слов связанных по смыслу',
+        'Привет, мир',
+        'Shop of MEN things',
+        'Привет, мир',
+        'Shop of MEN things',
+        'Одиннадцатиклассница',
+        'Преложение - это несколько слов связанных по смыслу Преложение - это несколько слов связанных по смыслу',
+      ];
+
+    .posts.mA.wfc
+      each post in posts
+        +post(post)

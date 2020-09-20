@@ -1,0 +1,16 @@
+mixin post(text)
+  .post&attributes(attributes).prel.mb1.hfc.cup
+    .post__content.fz1o25.tac= text
+      .post__actions-toggle.cup.mto25
+        div
+    .post__more.w100(style="display: none")
+      .post__actions.row.jcsb.aic.tac.w100
+        a(href='#').post__more-button.tac
+          +button('Подробнее')
+        a(href='#').post__support-button
+          +button('Поддержать')
+        a(href='#').post__comment-button.pro25
+          +button('Комментировать', true)
+      .post__short-descr.ptbo5.plr1.taj
+        | Это рыба текст, но возможно в этом и есть новый бизнес план. Залетай на тусу и отрывайся по полной, а то станешь как полный дурачёк, малыш)
+    .post__image(style="background-image: url(./attach/img/boat2.jpg);")
