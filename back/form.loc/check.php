@@ -24,9 +24,11 @@ if(mb_strlen($login) < 2 || mb_strlen($login) > 50)
 
 $pass = md5($pass."anenght2ei4");
 
-$mysql = new mysqli('localhost', 'root','root','vodopoi');
+require './db_info/lucifer.php';
+//require './db_info/frity.php';
+$mysql = new mysqli($db_host, $db_user, $db_pass, $db_db);
 $mysql->query("INSERT INTO `vpj_people` (`people_name`, `people_login`, `people_password`, `people_phone`, `people_email`) VALUES('$name','$login','$pass', '$tel', '$email')");
 
 $mysql->close();
-header('Location: /');
+header('Location: ./');
 ?>
