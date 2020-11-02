@@ -12,8 +12,8 @@ $res = $mysql->query("SELECT * FROM `vpj_people` WHERE `people_login` = '$login'
 $user = $res->fetch_assoc();
 if(count($user) == 0)
 {
-echo "Неверный логин или пароль";
-exit();
+    echo "Неверный логин или пароль";
+    exit();
 }
 
 setcookie('user', $user['name'], time() + 3600 * 24 * 30, "/");
