@@ -202,7 +202,7 @@ CREATE TABLE `vpj_people` (
   UNIQUE KEY `people_login` (`people_login`),
   UNIQUE KEY `people_email` (`people_email`),
   UNIQUE KEY `people_phone` (`people_phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `vpj_people` (
 
 LOCK TABLES `vpj_people` WRITE;
 /*!40000 ALTER TABLE `vpj_people` DISABLE KEYS */;
-INSERT INTO `vpj_people` VALUES (1,'Test Full Name','testlogin','testpass(must be md5)','+79780001122','test@email.com'),(7,'Федор Никонов','frity','a8af906636e1d595815d28f06cff3bc1','','nikonovfedor36936@gmail.com');
+INSERT INTO `vpj_people` VALUES (1,'Test Full Name','testlogin','testpass(must be md5)','+79780001122','test@email.com'),(7,'Федор Никонов','frity','a8af906636e1d595815d28f06cff3bc1','+79780000000','nikonovfedor36936@gmail.com');
 /*!40000 ALTER TABLE `vpj_people` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-01  1:34:43
+-- Dump completed on 2020-11-03  1:01:43
