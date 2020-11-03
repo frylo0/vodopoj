@@ -109,10 +109,12 @@ def path_to_sqldump():
    folder = list(map(lambda f: f.name, os.scandir(exec_dir)))
    if 'back' in folder:
       target_file = delim_char.join(['.', 'back', 'SQLDUMP', f"{dbd_json['db']}.sql"])
+
+   elif exec_dir.split(delim_char).pop() == 'back':
+      target_file = delim_char.join(['.', 'SQLDUMP', f"{dbd_json['db']}.sql"])
       
    else:
       target_folder = exec_dir.split(delim_char)
-      print(target_folder)
       last = target_folder.pop()
       while (last != 'back'):
          if (len(target_folder) == 0):
@@ -163,7 +165,7 @@ if len(argv) > 0:
       if dbd_json['server'] == 'LAMP':
          mysql_bin = f"mysql"
       elif dbd_json['server'] == 'OpenServer':
-         mysql_bin = f"{dbd_json['server_folder']}\\ospanel\\modules\\database\\{dbd_json['mysql_ver']}\\bin\\mysql.exe"
+         mysql_bin = f"{dbd_json['server_folder']}\\modules\\database\\{dbd_json['mysql_ver']}\\bin\\mysql.exe"
       else:
          print(NOT_CORRECT_SERVER)
          exit()
@@ -178,7 +180,7 @@ else:
    if dbd_json['server'] == 'LAMP':
       mysqldump_bin = f"mysqldump"
    elif dbd_json['server'] == 'OpenServer':
-      mysqldump_bin = f"{dbd_json['server_folder']}\\ospanel\\modules\\database\\{dbd_json['mysql_ver']}\\bin\\mysqldump.exe"
+      mysqldump_bin = f"{dbd_json['server_folder']}\\modules\\database\\{dbd_json['mysql_ver']}\\bin\\mysqldump.exe"
    else:
       print(NOT_CORRECT_SERVER)
       exit()
