@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
+-- MySQL dump 10.17  Distrib 10.3.22-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: vodopoi
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	10.3.22-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,9 +21,9 @@
 
 DROP TABLE IF EXISTS `vpj_address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_address` (
-  `id_address` int NOT NULL AUTO_INCREMENT,
+  `id_address` int(11) NOT NULL AUTO_INCREMENT,
   `address_coords` varchar(25) NOT NULL,
   `address_city` varchar(50) NOT NULL,
   `address_street` varchar(50) NOT NULL,
@@ -50,10 +50,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_blacklist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_blacklist` (
-  `id_blacklist` int NOT NULL AUTO_INCREMENT,
-  `blacklist_id_people` int NOT NULL,
+  `id_blacklist` int(11) NOT NULL AUTO_INCREMENT,
+  `blacklist_id_people` int(11) NOT NULL,
   PRIMARY KEY (`id_blacklist`),
   KEY `blacklist_id_people` (`blacklist_id_people`),
   CONSTRAINT `vpj_blacklist_ibfk_1` FOREIGN KEY (`blacklist_id_people`) REFERENCES `vpj_people` (`id_people`)
@@ -75,12 +75,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_event` (
-  `id_event` int NOT NULL AUTO_INCREMENT,
-  `event_id_order` int NOT NULL,
-  `event_id_people` int NOT NULL COMMENT 'Тот кто совершил действие',
-  `event_id_eventtype` int NOT NULL,
+  `id_event` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id_order` int(11) NOT NULL,
+  `event_id_people` int(11) NOT NULL COMMENT 'Тот кто совершил действие',
+  `event_id_eventtype` int(11) NOT NULL,
   `event_datetime` datetime NOT NULL,
   PRIMARY KEY (`id_event`),
   KEY `event_id_actor` (`event_id_people`),
@@ -108,9 +108,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_eventtype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_eventtype` (
-  `id_eventtype` int NOT NULL AUTO_INCREMENT,
+  `id_eventtype` int(11) NOT NULL AUTO_INCREMENT,
   `eventtype_name` varchar(20) NOT NULL,
   PRIMARY KEY (`id_eventtype`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -132,9 +132,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_feature`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_feature` (
-  `id_feature` int NOT NULL AUTO_INCREMENT,
+  `id_feature` int(11) NOT NULL AUTO_INCREMENT,
   `feature_name` varchar(50) NOT NULL,
   PRIMARY KEY (`id_feature`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -156,12 +156,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_order` (
-  `id_order` int NOT NULL AUTO_INCREMENT,
-  `order_id_address` int NOT NULL,
-  `order_id_people` int NOT NULL,
-  `order_id_state` int NOT NULL,
+  `id_order` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id_address` int(11) NOT NULL,
+  `order_id_people` int(11) NOT NULL,
+  `order_id_state` int(11) NOT NULL,
   `order_comment` text NOT NULL,
   `order_creation_time` datetime NOT NULL,
   PRIMARY KEY (`id_order`),
@@ -190,9 +190,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_people` (
-  `id_people` int NOT NULL AUTO_INCREMENT,
+  `id_people` int(11) NOT NULL AUTO_INCREMENT,
   `people_name` varchar(100) NOT NULL,
   `people_login` varchar(50) NOT NULL,
   `people_password` varchar(50) NOT NULL,
@@ -221,11 +221,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_people_address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_people_address` (
-  `id_people_address` int NOT NULL AUTO_INCREMENT,
-  `people_address_id_people` int NOT NULL,
-  `people_address_id_address` int NOT NULL,
+  `id_people_address` int(11) NOT NULL AUTO_INCREMENT,
+  `people_address_id_people` int(11) NOT NULL,
+  `people_address_id_address` int(11) NOT NULL,
   PRIMARY KEY (`id_people_address`),
   KEY `people_address_id_people` (`people_address_id_people`),
   KEY `people_address_id_address` (`people_address_id_address`),
@@ -250,11 +250,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_people_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_people_role` (
-  `id_people_role` int NOT NULL AUTO_INCREMENT,
-  `people_role_id_people` int NOT NULL,
-  `people_role_id_role` int NOT NULL,
+  `id_people_role` int(11) NOT NULL AUTO_INCREMENT,
+  `people_role_id_people` int(11) NOT NULL,
+  `people_role_id_role` int(11) NOT NULL,
   PRIMARY KEY (`id_people_role`),
   KEY `people_role_id_role` (`people_role_id_role`),
   KEY `people_role_id_people` (`people_role_id_people`) USING BTREE,
@@ -279,9 +279,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_role` (
-  `id_role` int NOT NULL AUTO_INCREMENT,
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(30) NOT NULL,
   PRIMARY KEY (`id_role`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -303,11 +303,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_role_feature`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_role_feature` (
-  `id_role_feature` int NOT NULL AUTO_INCREMENT,
-  `role_feature_id_role` int NOT NULL,
-  `role_feature_id_feature` int NOT NULL,
+  `id_role_feature` int(11) NOT NULL AUTO_INCREMENT,
+  `role_feature_id_role` int(11) NOT NULL,
+  `role_feature_id_feature` int(11) NOT NULL,
   PRIMARY KEY (`id_role_feature`),
   KEY `role_feature_id_feature` (`role_feature_id_feature`),
   KEY `role_feature_id_role` (`role_feature_id_role`),
@@ -332,9 +332,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `vpj_state`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vpj_state` (
-  `id_state` int NOT NULL AUTO_INCREMENT,
+  `id_state` int(11) NOT NULL AUTO_INCREMENT,
   `state_name` varchar(20) NOT NULL,
   PRIMARY KEY (`id_state`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -359,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-03  1:01:43
+-- Dump completed on 2020-11-03 21:58:35
