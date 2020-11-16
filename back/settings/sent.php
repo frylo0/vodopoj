@@ -4,6 +4,7 @@ $ph = htmlspecialchars($_POST['tel']);
 $em = htmlspecialchars($_POST['email']);
 $log = htmlspecialchars($_POST['login']);
 $pass = $_POST['pass'];
+require 'C:\Users\Acer\Downloads\OpenServer\domains\vodopoj.loc\back\form\db_info\lucifer.php';
 $mysql = new mysqli($db_host, $db_user, $db_pass, $db_db);
 $mysql->query(
     "INSERT INTO `vpj_people` (
