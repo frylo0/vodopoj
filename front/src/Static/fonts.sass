@@ -1,33 +1,30 @@
 // <Fonts>
 // Naming: $-f-{font-name}
 
-@font-face
-  font-family: 'PTSans-Regular'
-  src: url('./attach/font/PTSans-Regular.ttf') format('truetype')
-$-f-norm: 'PTSans-Regular', 'Open Sans', 'Roboto', 'Arial', sans-serif
+$f1-shortname: 'os-r'
+$f1-filename: 'OpenSans-Regular'
+$f1-fallback: "sans-serif"
+$f1: $f1-shortname, $f1-filename, $f1-fallback
 
-@font-face
-  font-family: 'PTSans-Bold'
-  src: url('./attach/font/PTSans-Bold.ttf') format('truetype')
-$-f-bold: 'PTSans-Bold', 'Open Sans', 'Roboto', 'Arial', sans-serif
+$f2-shortname: 'os-l'
+$f2-filename: 'OpenSans-Light'
+$f2-fallback: "sans-serif"
+$f2: $f2-shortname, $f2-filename, $f2-fallback
 
-@font-face
-  font-family: 'PTSans-Italic'
-  src: url('./attach/font/PTSans-Italic.ttf') format('truetype')
-$-f-norm-italic: 'PTSans-Italic', 'Open Sans', 'Roboto', 'Arial', sans-serif
+$f3-shortname: 'os-li'
+$f3-filename: 'OpenSans-LightItalic'
+$f3-fallback: "sans-serif"
+$f3: $f3-shortname, $f3-filename, $f3-fallback
 
-@font-face
-  font-family: 'PTSans-Bold-Italic'
-  src: url('./attach/font/PTSans-BoldItalic.ttf') format('truetype')
-$-f-bold-italic: 'PTSans-Bold-Italic', 'Open Sans', 'Roboto', 'Arial', sans-serif
+$fonts: $f1, $f2, $f3
 
-.ff-norm
-  font-family: $-f-norm
-.ff-bold
-  font-family: $-f-bold
-.ff-norm-italic
-  font-family: $-f-norm-italic
-.ff-bold-italic
-  font-family: $-f-bold-italic
+@each $alias, $font, $fallback in $fonts
+  @font-face
+    font-family: $font
+    src: url('./attach/font/#{$font}.ttf') format('truetype')
+  \:root
+    --f-#{$alias}: '#{$font}', #{$fallback}
+  .ff-#{$alias}
+    font-family: var(--f-#{$alias})
 
 // </Fonts>

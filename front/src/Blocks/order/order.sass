@@ -1,0 +1,60 @@
+.order
+   &_in-work
+      .order
+         &__address
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), $-c4
+   &_other
+      .order
+         &__address
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), $-c2
+      table .link
+         color: $-c3
+
+   $brdr: to_em(3px)
+   &__address
+      border-radius: $brdr $brdr 0 0
+      padding: to_em(10px)
+      //padding-right: to_em(10px)
+   &__content
+      border: 1px solid #E1DFEC
+      border-top: none
+      border-bottom: none
+   &__buttons
+      overflow: auto visible
+      margin-left: calc(-0.5em + 1px)
+      margin-right: -0.5em
+
+      &::before
+         content: ''
+         background: #F2F1F7
+         border-radius: 0 0 $brdr $brdr
+         height: 0.75em
+         position: absolute
+         width: calc(100% - 1em)
+         left: 0.5em
+         z-index: 1
+
+      .button
+         position: relative
+         z-index: 2
+         border-top-left-radius: 0
+         border-top-right-radius: 0
+         margin-left: 0.5em
+         white-space: pre
+         padding-left: to_em(10px)
+         padding-right: to_em(10px)
+
+      &::-webkit-scrollbar
+         width: 0
+         height: 0
+
+   table
+      border-collapse: collapse
+      width: 100%
+
+      tbody
+         width: 100%
+
+      td:nth-child(1)
+         font-size: 0.75em
+         padding-right: 0.5em

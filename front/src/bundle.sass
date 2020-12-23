@@ -11,14 +11,17 @@
 
 body
   margin: 0
-  color: $-c-text
-  background: $-c-background
-  font-family: $-f-norm
-  background-color: $-c-background
+  color: $-c6
+  background: $-c2
+  font-family: var(--f-os-l)
+  background-color: #aaa
 
 ::selection
-  background: $-c-highlight-50
+  background: $-c3-50
 
+@import Basic/devicer/devicer
+@import Basic/input/input
 @import Basic/button/button
-@import Blocks/post/post
-@import Blocks/menu/menu
+@import Basic/link/link
+@import Blocks/panel-main/panel-main
+@import Blocks/panel-nav/panel-nav

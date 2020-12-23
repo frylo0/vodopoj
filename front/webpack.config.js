@@ -114,6 +114,13 @@ const config = {
           name: './attach/video/[name].[ext]' //way to files in destination and there names
         }
       },
+      {
+        test: /\.php$/,
+        loader: 'file-loader',
+        options: {
+          name: './[name]/index.php'
+        }
+      }
     ]
   }
 };

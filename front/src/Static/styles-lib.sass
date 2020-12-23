@@ -1,4 +1,9 @@
 /* <StylesLib> */
+@function to_em ($px, $parent: 16px)
+  @return $px / $parent * 1em
+@function to_rem ($px, $parent: 16px)
+  @return $px / $parent * 1rem
+
 *
   box-sizing: border-box
 
@@ -29,11 +34,11 @@ $libValues: ('v1': -1em, '0': 0em, 'o25': 0.25em, 'o5': 0.5em, 'o75': 0.75em, '1
   align-items: center
 
 // STOP: POSITION
-.prel
+.rel
   position: relative
-.pabs
+.abs
   position: absolute
-.pfix
+.fix
   position: fixed
 *
   @include propGenerator(('.top': 'top', '.bottom': 'bottom', '.right': 'right', '.left': 'left'))
@@ -88,6 +93,17 @@ $libValues: ('v1': -1em, '0': 0em, 'o25': 0.25em, 'o5': 0.5em, 'o75': 0.75em, '1
   text-align: center
 .taj
   text-align: justify
+.tar
+  text-align: right
+.tal
+  text-align: left
+.tdn
+  text-decoration: none
+
+.fwb
+  font-weight: bold
+.fwn
+  font-weight: normal
 
 // STOP: SPECIAL
 .rub

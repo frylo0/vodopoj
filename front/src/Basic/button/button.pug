@@ -1,2 +1,6 @@
-mixin button(text, outlined=false)
-  button.button(class=outlined ? 'button_outlined' : '')&attributes(attributes).cup.ff-ser= text
+mixin button(text, type, color)
+   button.button.pA(
+      class=type ? `button_${type}` : ''
+      class=color ? `button_${color}` : ''
+   )&attributes(attributes)= text
+      

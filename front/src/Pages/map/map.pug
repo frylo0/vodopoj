@@ -1,0 +1,14 @@
+include ../../bundle.pug
+
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="X-UA-Compatible", content="ie=edge")
+      title Карта | Vodopoj
+      script(src="https://api-maps.yandex.ru/2.1/?apikey=9870ad1c-abdd-45e9-889c-cc2a3b8982e9&lang=ru_RU" type="text/javascript")
+   body.rel
+      +devicer().col
+         +panel-main()
+         +panel-nav(1)
