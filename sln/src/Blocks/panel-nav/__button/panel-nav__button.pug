@@ -1,0 +1,5 @@
+mixin panel-nav__button(title, icon, href, curr = false)
+   a(href=href).panel-nav__button.col.rel(class=curr ? 'panel-nav__button_current' : '')&attributes(attributes)
+      div.row.jcc.aic.w100
+         img(src=`./src/Attach/Images/${icon}`)
+      span.abs.w100.tac= title

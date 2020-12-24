@@ -1,0 +1,31 @@
+@mixin button_filled_color($color)
+   &.button_#{$color}
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), var(--#{$color})
+
+@mixin button_outlined_color($color)
+   &.button_#{$color}
+      border-color: var(--#{$color})
+   
+.button
+   border-radius: to_em(3px)
+   padding-top: 0.3em
+   padding-bottom: 0.3em
+   cursor: pointer
+
+   &_filled
+      font-family: var(--f-os-r)
+      border: none
+      @include button_filled_color('c2')
+      @include button_filled_color('c3')
+
+   &_outlined
+      font-family: var(--f-os-l)
+      background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E0E0E0
+      border-width: 1px
+      border-style: solid
+      @include button_outlined_color('c1')
+      @include button_outlined_color('c15')
+      @include button_outlined_color('c2')
+      @include button_outlined_color('c3')
+      @include button_outlined_color('c5')
+      

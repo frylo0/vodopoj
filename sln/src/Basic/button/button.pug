@@ -1,0 +1,6 @@
+mixin button(text, type, color)
+   button.button.pA(
+      class=type ? `button_${type}` : ''
+      class=color ? `button_${color}` : ''
+   )&attributes(attributes)= text
+      

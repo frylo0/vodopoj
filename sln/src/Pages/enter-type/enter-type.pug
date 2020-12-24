@@ -1,0 +1,22 @@
+include ../../bundle.pug
+
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="X-UA-Compatible", content="ie=edge")
+      title Тип входа | Vodopoj
+      link(rel="stylesheet" href=link+'.css')
+   body.rel
+      +devicer().row.jcc.aic
+         main.m1.p1
+            h1.m0.fz1 Как заходим?
+            h2.m0.mb1o25.fzo75 Вода. Симферополь
+            .col
+               +link('', './?page=map').w100
+                  +button('Волонтёр', 'filled', 'c2').w100
+            .col.mbo25.mto5
+               +button('Администратор', 'filled', 'c3').w100
+         .abs.bottomo5.fzo75
+            +link('Разработано командой FRITY', 'http://frity.ru').frity-link

@@ -1,0 +1,31 @@
+.panel-nav__button
+   background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%), #DFDFDF
+   border-radius: to_em(6px)
+   margin-right: 0.25em
+
+   &:last-child
+      margin-right: 0
+
+   $size: to_em(66px)
+   width: $size
+   height: $size
+
+   div
+      height: calc(100% - 0.25em)
+
+   span
+      color: $-c4
+      font-size: 0.65em
+      bottom: to_em(1px)
+
+   &_current
+      &::before
+         content: ''
+         display: block
+         position: absolute
+         top: 0
+         width: 100%
+         height: to_em(7px)
+         background: linear-gradient(to top, #{$-c2}, #{$-c2-50})
+         $bdrd-size: to_em(6px)
+         border-radius: $bdrd-size $bdrd-size 0 0

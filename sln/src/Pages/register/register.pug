@@ -1,0 +1,35 @@
+include ../../bundle.pug
+
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="X-UA-Compatible", content="ie=edge")
+      title Регистрация | Vodopoj
+      link(rel="stylesheet" href=link+'.css')
+   body.rel
+      +devicer().row.jcc.aic
+         main.m1.p1.rel
+            +link('', './?page=login').abs.right1.tdn.fz1o5.topo5
+               | &larr;
+            h1.m0.fz1 Регистрация
+            h2.m0.mb1o25.fzo75 Вода. Симферополь
+            form(action='./PHP/account/register.php', method='post')
+               .col
+                  +input('Имя Отчество', 'name')
+               .col.mt1
+                  +input('Логин', 'login').mbo5
+                  +input('Email', 'email').mbo5(type="email")
+                  +input('Телефон', 'phone').mbo5(type="tel")
+               .col.mt1
+                  +input('Пароль', 'password')(type="password").mbo5
+                  +input('Пароль ещё раз')(type="password").mbo5
+                  span.tac.dn.fzo75.ff-os-li#passwords-ok(style="color: red") Введённые пароли не совпадают
+               .col.mbo25.mto5
+                  +link('', '#').w100
+                     +button('Зарегистрироваться', 'filled', 'c3').w100(disabled="disabled", type="submit")#register-button
+         .abs.bottomo5.fzo75
+            +link('Разработано командой FRITY', 'http://frity.ru').frity-link
+
+   script(src=`${link}.bundle.js`)

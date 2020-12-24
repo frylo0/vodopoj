@@ -1,0 +1,116 @@
+/* <StylesLib> */
+@function to_em ($px, $parent: 16px)
+  @return $px / $parent * 1em
+@function to_rem ($px, $parent: 16px)
+  @return $px / $parent * 1rem
+
+*
+  box-sizing: border-box
+
+$libValues: ('v1': -1em, '0': 0em, 'o25': 0.25em, 'o5': 0.5em, 'o75': 0.75em, '1': 1em, '1o25': 1.25em, '1o5': 1.5em, '2': 2em, '2o5': 2.5em, 'A': auto)
+@mixin propGenerator($props, $values:$libValues)
+  @each $propName, $prop in $props
+    @each $name, $val in $values
+      #{$propName}#{$name}
+        @if type-of($prop) == list
+          @each $singleProp in $prop
+            #{$singleProp}: $val
+        @else
+          #{$prop}: $val
+
+// STOP: FLEX
+.row
+  display: flex
+.col
+  display: flex
+  flex-direction: column
+.wrap
+  flex-wrap: wrap
+.jcc
+  justify-content: center
+.jcsb
+  justify-content: space-between
+.aic
+  align-items: center
+
+// STOP: POSITION
+.rel
+  position: relative
+.abs
+  position: absolute
+.fix
+  position: fixed
+*
+  @include propGenerator(('.top': 'top', '.bottom': 'bottom', '.right': 'right', '.left': 'left'))
+
+.ct-abs // center absoute
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+.ct-abs_horiz // center absoute
+  position: absolute
+  left: 50%
+  transform: translate(-50%, 0)
+.ct-abs_vert // center absoute
+  position: absolute
+  top: 50%
+  transform: translate(0, -50%)
+
+//DISPLAY
+.dn
+  display: none
+.dib
+  display: inline-block
+.dg
+  display: grid
+.ovh
+  overflow: hidden
+.cup
+  cursor: pointer
+
+// STOP: SIZE
+.h100
+  height: 100%
+.w100
+  width: 100%
+.hfc
+  height: fit-content
+.wfc
+  width: fit-content
+
+// STOP: MARGIN & PADDING
+*
+  @include propGenerator(('.p': 'padding', '.pt': 'padding-top', '.pb': 'padding-bottom', '.ptb': ('padding-top', 'padding-bottom')))
+  @include propGenerator(('.pl': 'padding-left', '.pr': 'padding-right', '.plr': ('padding-left', 'padding-right')))
+  @include propGenerator(('.m': 'margin', '.mt': 'margin-top', '.mb': 'margin-bottom', '.mtb': ('margin-top', 'margin-bottom')))
+  @include propGenerator(('.ml': 'margin-left', '.mr': 'margin-right', '.mlr': ('margin-left', 'margin-right')))
+
+// STOP: TEXT
+*
+  @include propGenerator(('.fz': 'font-size'))
+.tac
+  text-align: center
+.taj
+  text-align: justify
+.tar
+  text-align: right
+.tal
+  text-align: left
+.tdn
+  text-decoration: none
+
+.fwb
+  font-weight: bold
+.fwn
+  font-weight: normal
+
+// STOP: SPECIAL
+.rub
+  // Usage: span.rub P
+  line-height: 5px
+  width: 0.35em
+  border-bottom: 1px solid #000
+  display: inline-block
+
+/* </StylesLib> */

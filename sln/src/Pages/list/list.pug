@@ -1,0 +1,45 @@
+include ../../bundle.pug
+
+include ../../Blocks/order/order.pug
+
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="X-UA-Compatible", content="ie=edge")
+      title Список | Vodopoj
+      link(rel="stylesheet" href=`${link}.css`)
+   body.rel
+      +devicer().col
+         - var id = $_COOKIE['vpj_id'];
+
+         template#tpl-my
+            +order({ name: '{name}', address: '{address}', phone: '{phone}', comment: '{comment}' }, true)
+         template#tpl-other
+            +order({ name: '{name}', address: '{address}', phone: '{phone}', comment: '{comment}' }, false)
+
+         +panel-main().p1
+
+            - orm.is_log = false;
+            h2 В работе
+            section#section-my
+               span.section__placeholder Нет выполняемых заказов
+               - orm.from('order');
+               - var orders_my = orm.select('*').where(`order_id_volonter = '${id}' AND order_id_state = '1'`)();
+               each order in orders_my
+                  - var data = get_address_data(order);
+                  +order(data, true)
+
+            h2 Заявки поблизости
+            section#section-other
+               span.section__placeholder Нет заказов
+               - orm.from('order');
+               - var orders_other = orm.select('*').where(`order_id_state = 2`)();
+               each order in orders_other
+                  - var data = get_address_data(order);
+                  +order(data, false)
+
+         +panel-nav(2)
+
+   script(src=`${link}.bundle.js`)

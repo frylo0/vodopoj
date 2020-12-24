@@ -1,0 +1,30 @@
+// <Fonts>
+// Naming: $-f-{font-name}
+
+$f1-shortname: 'os-r'
+$f1-filename: 'OpenSans-Regular'
+$f1-fallback: "sans-serif"
+$f1: $f1-shortname, $f1-filename, $f1-fallback
+
+$f2-shortname: 'os-l'
+$f2-filename: 'OpenSans-Light'
+$f2-fallback: "sans-serif"
+$f2: $f2-shortname, $f2-filename, $f2-fallback
+
+$f3-shortname: 'os-li'
+$f3-filename: 'OpenSans-LightItalic'
+$f3-fallback: "sans-serif"
+$f3: $f3-shortname, $f3-filename, $f3-fallback
+
+$fonts: $f1, $f2, $f3
+
+@each $alias, $font, $fallback in $fonts
+  @font-face
+    font-family: $font
+    src: url('./../../../Attach/Fonts/#{$font}.ttf') format('truetype')
+  \:root
+    --f-#{$alias}: '#{$font}', #{$fallback}
+  .ff-#{$alias}
+    font-family: var(--f-#{$alias})
+
+// </Fonts>

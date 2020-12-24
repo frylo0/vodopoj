@@ -1,0 +1,27 @@
+@import './Static/colors'
+@import './Static/fonts'
+@import './Static/decore'
+
+@import './Static/styles-lib'
+
+*
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+body
+  margin: 0
+  color: $-c6
+  background: $-c2
+  font-family: var(--f-os-l)
+  background-color: #aaa
+
+::selection
+  background: $-c3-50
+
+@import Basic/devicer/devicer
+@import Basic/input/input
+@import Basic/button/button
+@import Basic/link/link
+@import Blocks/panel-main/panel-main
+@import Blocks/panel-nav/panel-nav

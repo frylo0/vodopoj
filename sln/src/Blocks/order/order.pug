@@ -1,0 +1,31 @@
+mixin order(order_data, in_work = true)
+   .order.mbo5(
+      class=( in_work ? 'order_in-work' : 'order_other' ), 
+      type=( in_work ? 'in_work' : 'other' ),
+      data-id=order_data['id'],
+   )&attributes(attributes)
+      .order__address.ff-os-r= order_data['address']
+      .order__content.po5
+         table.order__customer.col.aic.mbo25
+            tr
+               td.fwb Заказчик:
+               td
+                  .order__customer-name= order_data['name']
+            tr
+               td.fwb Телефон:
+               td
+                  if order_data['phone'] != '{phone}'
+                     +link(beauty_tel(order_data['phone']), `tel:${order_data['phone']}`).order__customer-phone.tdn
+                  else
+                     +link(order_data['phone'], `tel:${order_data['phone']}`).order__customer-phone.tdn
+         .order__comment.fzo75
+            = order_data['comment']
+      .order__buttons.rel
+         div.row
+            if in_work
+               +button('Отказаться', 'outlined', 'c2')(data-ajax="./PHP/order/reject.php").order__button_reject
+               +button('Выполнено', 'outlined', 'c5')(data-ajax="./PHP/order/finish.php").order__button_finish
+            else
+               +button('Откликнуться', 'outlined', 'c3')(data-ajax="./PHP/order/take.php").order__button_take
+            //-+button('На карте', 'outlined', 'c15')
+            button(style="pointer-events: none; opacity: 0; width: 1em; padding: 0.15em")

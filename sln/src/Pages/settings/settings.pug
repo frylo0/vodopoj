@@ -1,0 +1,39 @@
+include ../../bundle.pug
+
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="X-UA-Compatible", content="ie=edge")
+      title Настройки | Vodopoj
+      link(rel="stylesheet" href=`${link}.css`)
+   body.rel
+
+      - var id = $_COOKIE['vpj_id'];
+      - var account = orm.from('people').select('*').where(`id_people = '${id}'`).take()[0];
+
+      +devicer().col
+         +panel-main().p1
+            h1.fz1.mt0 Настройки
+            form(action="./PHP/account/update.php" method="post")
+               .col.mbo5
+                  +input('Имя Отчество', 'name')(value=( account['people_name'] ))
+               .col.mbo5
+                  +input('Логин', 'login')(value=( account['people_login'] ))
+                  +input('Email', 'email')(value=( account['people_email'] ))
+                  +input('Телефон', 'phone')(value=( account['people_phone'] ))
+               .col.mbo5
+                  +input('Новый пароль', 'password')(type="password")
+                  +input('Пароль ещё раз')(type="password")
+                  span.tac.dn.fzo75.ff-os-li#passwords-ok(style="color: red") Введённые пароли не совпадают
+               .col
+                  +link('', '#').w100
+                     +button('Сохранить', 'filled', 'c2').mbo5.w100(disabled="disabled", type="submit")#save-button
+                  +link('', './PHP/account/exit.php').w100
+                     +button('Выйти из аккаунта', 'outlined', 'c2').w100(type="button")
+            .col
+               +link('Разработано командой FRITY', 'http://frity.ru').fzo75(style="color: black").mt1o5.tac
+         +panel-nav(3)
+
+   script(src=`${link}.bundle.js` type="module")
