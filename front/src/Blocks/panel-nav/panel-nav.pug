@@ -1,7 +1,0 @@
-include __button/panel-nav__button.pug
-mixin panel-nav(curr)
-   nav.panel-nav.row.jcc.aic&attributes(attributes)
-      +panel-nav__button('Карта', 'icon-nav-map.svg', './map.html', curr==1)
-      +panel-nav__button('Список', 'icon-nav-list.svg', './list.html', curr==2)
-      +panel-nav__button('Настройки', 'icon-nav-settings.svg', './settings.html', curr==3)
-      
