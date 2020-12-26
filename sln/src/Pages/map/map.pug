@@ -8,7 +8,7 @@ html(lang="en")
       meta(http-equiv="X-UA-Compatible", content="ie=edge")
       title Карта | Vodopoj
       script(src="https://api-maps.yandex.ru/2.1/?apikey=9870ad1c-abdd-45e9-889c-cc2a3b8982e9&lang=ru_RU" type="text/javascript")
-      link(rel="stylesheet" href=link+'.css')
+      link(rel="stylesheet" href=`${link}.css?ver=${ver}`)
    body.rel
       +devicer().col
          +panel-main()

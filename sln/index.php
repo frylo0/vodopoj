@@ -1,5 +1,7 @@
 <?php
 
+$VER = '1.0';
+
 use JsPhpize\JsPhpizePhug;
 
 include_once __DIR__ . '/vendor/autoload.php';
@@ -16,7 +18,7 @@ if (!isset($_COOKIE['vpj_id']) && !(
    die;
 }
 
-$orm = new ORM('localhost', 'phpmyadmin', 'Jyie-ha0r-kgie', 'vodopoi');
+require_once './orm.php';
 $orm->table_prefix = 'vpj_';
 $orm->is_log = true;
 
@@ -24,6 +26,7 @@ Phug::addExtension(JsPhpizePhug::class);
 $page_name = isset($_GET['page']) ? $_GET['page'] : 'login';
 Phug::displayFile("./src/Pages/{$page_name}/{$page_name}.pug", [
    'link' => "./src/Pages/{$page_name}/dist/{$page_name}",
+   'ver' => "$VER",
    'orm' => $orm,
    '$_POST' => $_POST,
    '$_GET' => $_GET,

@@ -7,7 +7,7 @@ print("""Итак приступим.
 I = '/' if( os.name == 'posix' )else '\\'
 script_dir = os.path.dirname(__file__)
 def dbd(arg):
-   os.system(f'py .{script_dir}{I}env{I}dbd.py {arg}');
+   os.system(f'python3 .{script_dir}{I}env{I}dbd.py {arg}');
    
 dbd('relogin')
 

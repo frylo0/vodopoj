@@ -107,16 +107,17 @@ def path_to_sqldump():
    target_file = ''
    exec_dir = os.getcwd()
    folder = list(map(lambda f: f.name, os.scandir(exec_dir)))
-   if 'back' in folder:
-      target_file = delim_char.join(['.', 'back', 'SQLDUMP', f"{dbd_json['db']}.sql"])
-
-   elif exec_dir.split(delim_char).pop() == 'back':
+   if 'SQLDUMP' in folder:
       target_file = delim_char.join(['.', 'SQLDUMP', f"{dbd_json['db']}.sql"])
+      
+   # was ./back/SQLDUMP if we are in back folder
+   #elif exec_dir.split(delim_char).pop() == 'back':
+   #   target_file = delim_char.join(['.', 'SQLDUMP', f"{dbd_json['db']}.sql"])
       
    else:
       target_folder = exec_dir.split(delim_char)
       last = target_folder.pop()
-      while (last != 'back'):
+      while (last != 'SQLDUMP'):
          if (len(target_folder) == 0):
             print('Не удалось найти папку SQLDUMP, возможно вам стоит перейти в другую папку.')
             exit()

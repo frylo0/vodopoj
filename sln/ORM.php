@@ -24,6 +24,11 @@ class ORM {
 
       $this->db = new mysqli($this->host, $this->user, $this->pass, $this->db_name);
 
+      if ($this->db->connect_error) {
+         die('Ошибка подключения (' . $this->db->connect_errno . ') '
+            . $this->db->connect_error);
+      }
+
       $this->conditions = '';
    }
 
