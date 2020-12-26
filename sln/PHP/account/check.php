@@ -23,6 +23,7 @@ if (count($errors) > 0) {
    die;
 }
 
+$orm->is_log = false;
 $password = md5($password);
 $has_id_and_password = "people_login = '$login' AND people_password = '$password'";
 $id = $orm_people
